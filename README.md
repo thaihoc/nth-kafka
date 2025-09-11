@@ -8,10 +8,16 @@ Build image:
 podman build -t nth-kafka:3.7.0-kraft .
 ```
 
+Tạo network nếu chưa có:
+
+```bash
+podman network create nth
+```
+
 Run Kafka:
 
 ```bash
-podman run -d --name kafka370 -p 9092:9092 nth-kafka:3.7.0-kraft
+podman run -d --network nth --name kafka370 -p 9092:9092 nth-kafka:3.7.0-kraft
 ```
 
 ## Kiểm tra Kafka đã hoạt động
