@@ -1,6 +1,6 @@
 # Hướng dẫn cài đặt Kafka sử dụng Podman
 
-Download Kafka vào thư mục project của bạn: https://archive.apache.org/dist/kafka/3.7.0/kafka_2.13-3.7.0.tgz
+Download Kafka vào thư mục project: https://archive.apache.org/dist/kafka/3.7.0/kafka_2.13-3.7.0.tgz
 
 Build image:
 
@@ -14,13 +14,23 @@ Run Kafka:
 podman run --name kafka37 -p 9092:9092 nth-kafka:3.7.0-kraft
 ```
 
-Kiểm tra Kafka đã hoạt động:
+## Kiểm tra Kafka đã hoạt động
+
+Thử tạo một topic test:
 
 ```bash
 podman exec -it kafka37 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1
+```
 
+Xem danh sách topic:
+
+```bash
 podman exec -it kafka37 kafka-topics.sh --bootstrap-server localhost:9092 --list
+```
 
+Xóa topic đã tạo:
+
+```bash
 podman exec -it kafka37 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic test
 ```
 
