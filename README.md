@@ -17,7 +17,9 @@ podman network create nth
 Run Kafka:
 
 ```bash
-podman run -d --network nth --name kafka370 -p 9092:9092 nth-kafka:3.7.0-kraft
+podman run -d --network nth --name kafka370 -p 9092:9092 
+    -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka370:9092
+    nth-kafka:3.7.0-kraft
 ```
 
 ## Kiểm tra Kafka đã hoạt động
