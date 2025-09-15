@@ -22,6 +22,8 @@ podman run -d --network nth --name kafka370 -p 9092:9092
     nth-kafka:3.7.0-kraft
 ```
 
+Như vậy bạn đã cài xong Kafka 3.7.0 sử dụng Podman.
+
 ## Kiểm tra Kafka đã hoạt động
 
 Thử tạo một topic test
